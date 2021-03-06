@@ -25,7 +25,7 @@ namespace LoginApp.Controllers
             registerDto.Name = registerDto.Name.ToLower();
             var role = "user";
 
-            if (registerDto.AdminCode != null) {
+            if (registerDto.AdminCode != null && registerDto.IsAdmin == true) {
                 if (registerDto.AdminCode == _config.GetSection("AppSettings:AdminCode").Value)
                     role = "admin";
                 else 
